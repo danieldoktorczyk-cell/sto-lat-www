@@ -1,6 +1,6 @@
-"""Buduje sekcję „Nowości” w index.html oraz stronę nowosci.html z content/nowosci.json.
+"""Buduje sekcję „Nowości” w stara.html (dawna strona główna) oraz stronę nowosci.html z content/nowosci.json.
 Użycie (z katalogu strony):  python tools/build.py
-Edytujesz tylko content/nowosci.json. Znaczniki <!-- NOWOSCI:START --> / <!-- NOWOSCI:END --> w index.html zostają."""
+Edytujesz tylko content/nowosci.json. Znaczniki <!-- NOWOSCI:START --> / <!-- NOWOSCI:END --> w stara.html zostają."""
 import json, re, html, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 MIES = ["stycznia","lutego","marca","kwietnia","maja","czerwca","lipca","sierpnia","września","października","listopada","grudnia"]
@@ -38,7 +38,7 @@ blok = f'''<!-- NOWOSCI:START (generowane przez tools/build.py, nie edytuj ręcz
 <p class="more"><a href="nowosci.html">Wszystkie nowości i aktualności →</a></p>
 </section>
 <!-- NOWOSCI:END -->'''
-idx = (ROOT/"index.html").read_text(encoding="utf-8")
+idx = (ROOT/"stara.html").read_text(encoding="utf-8")
 if "<!-- NOWOSCI:START" in idx:
     idx = re.sub(r"<!-- NOWOSCI:START.*?<!-- NOWOSCI:END -->", lambda m: blok, idx, flags=re.S)
 else:
@@ -74,7 +74,7 @@ else:
     idx = idx.replace("</style>", CSS + "</style>", 1)
 if 'href="nowosci.html">Nowości</a>' not in idx:
     idx = idx.replace('<a href="polityka-prywatnosci.html">Polityka prywatności</a><a href="mailto', '<a href="nowosci.html">Nowości</a><a href="polityka-prywatnosci.html">Polityka prywatności</a><a href="mailto', 1)
-(ROOT/"index.html").write_text(idx, encoding="utf-8")
+(ROOT/"stara.html").write_text(idx, encoding="utf-8")
 
 # --- strona nowosci.html ---
 style = re.search(r"<style>.*?</style>", idx, re.S).group(0)
