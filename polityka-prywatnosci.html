@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polityka prywatności – Sto lat!</title>
+<meta name="description" content="Polityka prywatności aplikacji mobilnej Sto lat! – przypomnienia o urodzinach, imieninach i rocznicach. Dane zostają na Twoim telefonie.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#130f1d; --bg2:#1c162a; --line:#2c2540;
+  --text:#e4e0f0; --muted:#b9b4c8; --white:#ffffff;
+  --mint:#69d7be; --pink:#ee85ad; --lav:#a593ff; --amber:#ffd27a; --violet:#6a53df;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:17px;line-height:1.7}
+a{color:var(--mint);text-underline-offset:3px}
+a:hover{color:var(--white)}
+header.top{position:relative;overflow:hidden;background:linear-gradient(180deg,#130f1d 0%,#1c162a 100%);border-bottom:1px solid var(--line)}
+.glow1{position:absolute;width:560px;height:560px;border-radius:50%;right:-200px;top:-220px;background:radial-gradient(circle,rgba(194,87,138,.30),rgba(194,87,138,0) 65%)}
+.glow2{position:absolute;width:520px;height:520px;border-radius:50%;left:-200px;top:-120px;background:radial-gradient(circle,rgba(217,164,65,.22),rgba(217,164,65,0) 65%)}
+.garland{position:absolute;top:0;left:0;right:0;height:46px;pointer-events:none}
+.garland svg{position:absolute;top:0;left:0;width:100%;height:30px}
+.bulbs{position:absolute;top:8px;left:0;right:0;display:flex;justify-content:space-between;padding:0 2.5%}
+.bulbs span{width:11px;height:15px;border-radius:50%;display:block}
+.bulbs span:nth-child(4n+1){background:#ff7a9a;box-shadow:0 0 16px 5px rgba(255,122,154,.5);margin-top:6px}
+.bulbs span:nth-child(4n+2){background:#5ee0b8;box-shadow:0 0 16px 5px rgba(94,224,184,.45);margin-top:13px}
+.bulbs span:nth-child(4n+3){background:#ffd27a;box-shadow:0 0 16px 5px rgba(255,210,122,.45);margin-top:8px}
+.bulbs span:nth-child(4n){background:#a593ff;box-shadow:0 0 16px 5px rgba(165,147,255,.5);margin-top:2px}
+.wrap{position:relative;max-width:820px;margin:0 auto;padding:0 24px}
+.brand{display:flex;align-items:center;gap:12px;padding-top:72px;color:var(--white);text-decoration:none;font-weight:800;font-size:22px;width:fit-content}
+.brand span.ic{width:44px;height:44px;border-radius:12px;background:linear-gradient(145deg,#2a2840,#161324);display:flex;align-items:center;justify-content:center}
+h1{margin:36px 0 8px;font-size:clamp(34px,6vw,52px);line-height:1.1;font-weight:800;letter-spacing:-.01em;color:var(--white)}
+h1 em{font-style:normal;color:#ff8fb1}
+.meta{margin:0 0 48px;color:var(--muted);font-size:15px}
+main{padding:48px 0 24px}
+.lead{padding:24px 26px;border-radius:24px;background:linear-gradient(160deg,rgba(105,215,190,.14),rgba(105,215,190,.03));border:1px solid rgba(105,215,190,.28);color:var(--text);font-size:18px}
+.lead strong{color:var(--mint)}
+nav.toc{margin:40px 0 8px;padding:24px 26px;border-radius:24px;background:var(--bg2);border:1px solid var(--line)}
+nav.toc p{margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--lav)}
+nav.toc ol{margin:0;padding-left:22px;columns:2;column-gap:32px;font-size:15.5px}
+nav.toc li{margin:2px 0;break-inside:avoid}
+@media (max-width:640px){nav.toc ol{columns:1}}
+section{padding-top:44px}
+h2{margin:0 0 12px;font-size:clamp(22px,3.4vw,28px);line-height:1.25;font-weight:700;color:var(--white);scroll-margin-top:20px}
+h2 .n{color:var(--pink);margin-right:8px}
+p{margin:0 0 14px}
+ul{margin:0 0 14px;padding-left:22px}
+li{margin:6px 0}
+li::marker{color:var(--mint)}
+.table{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:15.5px;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.table th,.table td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.table th{background:var(--bg2);color:var(--white);font-weight:700}
+.table tr:last-child td{border-bottom:0}
+.table td:first-child{color:var(--white);font-weight:600;white-space:nowrap}
+@media (max-width:640px){.table td:first-child{white-space:normal}.table th,.table td{padding:10px}}
+mark{background:rgba(255,210,122,.18);color:var(--amber);padding:1px 6px;border-radius:6px}
+footer{margin-top:56px;padding:32px 0 56px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer a{color:var(--muted)}
+@media print{body{background:#fff;color:#111}h1,h2,.table td:first-child,.table th{color:#111}a{color:#111}header.top,.garland,.glow1,.glow2{display:none}.lead,nav.toc,.table{background:#fff;border-color:#bbb}}
+</style>
+</head>
+<body>
+
+<header class="top">
+<div class="glow1" aria-hidden="true"></div>
+<div class="glow2" aria-hidden="true"></div>
+<div class="garland" aria-hidden="true">
+<svg viewBox="0 0 1000 40" preserveAspectRatio="none"><path d="M0 6 Q 125 28 250 10 T 500 8 T 750 10 T 1000 6" fill="none" stroke="#4a4560" stroke-width="1.5" vector-effect="non-scaling-stroke"></path></svg>
+<div class="bulbs"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+</div>
+<div class="wrap">
+<a class="brand" href="./"><span class="ic" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 28 28"><ellipse cx="9" cy="10" rx="5.5" ry="7" fill="#7fd6c4"></ellipse><ellipse cx="18.5" cy="9.5" rx="5.5" ry="7" fill="#ff99ba"></ellipse><ellipse cx="13.5" cy="13" rx="6" ry="7.5" fill="#bba8ff"></ellipse></svg></span>Sto lat!</a>
+<h1>Polityka <em>prywatności</em></h1>
+<p class="meta">Aplikacja mobilna „Sto lat!” (dawniej „Pamiętnik rodzinny”) · Ostatnia aktualizacja: 12 października 2026</p>
+</div>
+</header>
+
+<main>
+<div class="wrap">
+
+<p class="lead"><strong>W skrócie:</strong> aplikacja nie ma kont, reklam ani analityki. Wszystko, co w niej zapiszesz (imiona, daty, numery telefonów, zdjęcia, notatki), zostaje <strong>tylko na Twoim telefonie</strong>. Nie wysyłamy tych danych na żaden serwer i nie mamy do nich dostępu.</p>
+
+<nav class="toc" aria-label="Spis treści">
+<p>Spis treści</p>
+<ol>
+<li><a href="#kto">Kim jesteśmy</a></li>
+<li><a href="#zasada">Główna zasada</a></li>
+<li><a href="#dane">Jakie dane przetwarza aplikacja</a></li>
+<li><a href="#uprawnienia">Uprawnienia i po co są</a></li>
+<li><a href="#uslugi">Usługi zewnętrzne</a></li>
+<li><a href="#brak">Czego nie robimy</a></li>
+<li><a href="#kopia">Kopia zapasowa i udostępnianie</a></li>
+<li><a href="#bliscy">Dane Twoich bliskich</a></li>
+<li><a href="#bezpieczenstwo">Bezpieczeństwo</a></li>
+<li><a href="#usuwanie">Usuwanie danych</a></li>
+<li><a href="#dzieci">Dzieci</a></li>
+<li><a href="#prawa">Twoje prawa</a></li>
+<li><a href="#zmiany">Zmiany polityki</a></li>
+<li><a href="#kontakt">Kontakt</a></li>
+</ol>
+</nav>
+
+<section id="kto">
+<h2><span class="n">1.</span>Kim jesteśmy</h2>
+<p>Dostawcą aplikacji „Sto lat!” jest Daniel Doktorczyk (dalej: „dostawca”). Kontakt w sprawach prywatności: <a href="mailto:stolat.app@gmail.com">stolat.app@gmail.com</a>.</p>
+</section>
+
+<section id="zasada">
+<h2><span class="n">2.</span>Główna zasada</h2>
+<p>Aplikacja działa lokalnie. Dane, które wpisujesz lub wczytujesz, są zapisywane w pamięci Twojego telefonu. Dostawca nie prowadzi serwera z Twoimi danymi, nie wymaga założenia konta i nie otrzymuje kopii Twoich wpisów. Dlatego w typowym użyciu dostawca nie jest administratorem Twoich danych osobowych w rozumieniu RODO. Decydujesz o nich Ty.</p>
+</section>
+
+<section id="dane">
+<h2><span class="n">3.</span>Jakie dane przetwarza aplikacja</h2>
+<p>Aplikacja zapisuje na telefonie to, co sam do niej wprowadzisz:</p>
+<table class="table">
+<thead><tr><th>Dane</th><th>Do czego służą</th></tr></thead>
+<tbody>
+<tr><td>Imiona i nazwiska, relacja (np. „mama”)</td><td>Lista wydarzeń, życzenia z poprawną odmianą, podpowiedzi prezentów</td></tr>
+<tr><td>Daty urodzin, imienin, rocznic i innych wydarzeń</td><td>Kalendarz, odliczanie, przypomnienia</td></tr>
+<tr><td>Numery telefonów (opcjonalnie)</td><td>Szybkie połączenie lub SMS z poziomu karty osoby</td></tr>
+<tr><td>Zdjęcia osób i wspomnień (opcjonalnie)</td><td>Awatary, oś czasu wspomnień, widżet</td></tr>
+<tr><td>Notatki, zainteresowania, historia prezentów, wspomnienia</td><td>Pomysły na prezenty, kronika rodzinna</td></tr>
+<tr><td>Ustawienia aplikacji</td><td>Godzina przypomnień, motyw, podpis na kartkach, zapisane pomysły na prezenty</td></tr>
+</tbody>
+</table>
+<p>Te dane nie opuszczają telefonu, chyba że sam je wyślesz, na przykład przez funkcję udostępniania (patrz punkt 7).</p>
+</section>
+
+<section id="uprawnienia">
+<h2><span class="n">4.</span>Uprawnienia i po co są</h2>
+<p>Aplikacja prosi o uprawnienia tylko wtedy, gdy są potrzebne do funkcji, którą wybierasz. Każde możesz odebrać w ustawieniach telefonu.</p>
+<ul>
+<li><strong>Powiadomienia</strong> – żeby przypominać o wydarzeniach o wybranej godzinie. Przypomnienia są planowane na samym telefonie i działają bez internetu.</li>
+<li><strong>Kontakty</strong> – tylko gdy wybierzesz import urodzin i numerów z kontaktów. Aplikacja odczytuje wybrane dane na telefonie i zapisuje je lokalnie. Nie wysyła ich nigdzie.</li>
+<li><strong>Aparat i zdjęcia (galeria)</strong> – tylko gdy dodajesz zdjęcie osoby lub wspomnienia. Wybrane zdjęcia są kopiowane do pamięci aplikacji.</li>
+<li><strong>SMS i MMS</strong> – aplikacja nie wysyła wiadomości sama i nie czyta Twoich wiadomości. Otwiera systemową aplikację do SMS z przygotowanym tekstem (lub kartką), a wysłanie zatwierdzasz Ty.</li>
+<li><strong>Widżet na ekran główny (Android)</strong> – pokazuje najbliższe wydarzenie na podstawie danych zapisanych w aplikacji.</li>
+</ul>
+</section>
+
+<section id="uslugi">
+<h2><span class="n">5.</span>Usługi zewnętrzne</h2>
+<ul>
+<li><strong>Aktualizacje aplikacji (Expo / EAS Update).</strong> Aplikacja może sprawdzać, czy dostępna jest nowa wersja, i pobierać ją z usługi Expo. Takie zapytanie zawiera dane techniczne niezbędne do dostarczenia aktualizacji (m.in. wersję aplikacji, system telefonu i adres IP, który wynika z samego połączenia internetowego). Nie zawiera treści Twoich wpisów. Zasady usługi: <a href="https://expo.dev/privacy" rel="noopener">expo.dev/privacy</a>.</li>
+<li><strong>Sklep Google Play.</strong> Pobranie i aktualizacja aplikacji ze sklepu odbywają się na zasadach Google: <a href="https://policies.google.com/privacy" rel="noopener">policies.google.com/privacy</a>.</li>
+<li><strong>Wyszukiwarka i komunikatory.</strong> Przycisk „Szukaj w Google” (w pomysłach na prezenty) otwiera przeglądarkę ze zdaniem wyszukiwania zawierającym nazwę pomysłu, np. nazwę prezentu. Dalej obowiązują zasady Google. Udostępnienie życzeń lub kartki przez komunikator odbywa się na zasadach wybranej przez Ciebie aplikacji.</li>
+</ul>
+</section>
+
+<section id="brak">
+<h2><span class="n">6.</span>Czego nie robimy</h2>
+<ul>
+<li>Nie wymagamy konta ani adresu e-mail.</li>
+<li>Nie wyświetlamy reklam i nie korzystamy z reklamowych identyfikatorów.</li>
+<li>Nie stosujemy analityki, śledzenia zachowań ani profilowania.</li>
+<li>Nie sprzedajemy i nie udostępniamy Twoich danych, bo ich nie mamy.</li>
+<li>Nie odczytujemy Twojej lokalizacji.</li>
+</ul>
+</section>
+
+<section id="kopia">
+<h2><span class="n">7.</span>Kopia zapasowa i udostępnianie</h2>
+<p>Możesz samodzielnie zapisać kopię zapasową danych do pliku lub tekstu i przenieść ją na inny telefon. Kopia jest tworzona na Twoje polecenie i trafia tam, gdzie ją wyślesz (np. do wybranej aplikacji, poczty lub chmury). Za miejsce jej przechowywania odpowiadasz Ty, więc warto zadbać, by kopia nie trafiła w niepowołane ręce. To samo dotyczy życzeń i kartek, które udostępniasz.</p>
+</section>
+
+<section id="bliscy">
+<h2><span class="n">8.</span>Dane Twoich bliskich</h2>
+<p>W aplikacji zapisujesz też dane innych osób (imię, datę, czasem telefon czy zdjęcie). Robisz to na własny, osobisty użytek i tylko na swoim telefonie. Jeśli ktoś z bliskich poprosi o usunięcie jego danych, usuń jego kartę w aplikacji (punkt 10).</p>
+</section>
+
+<section id="bezpieczenstwo">
+<h2><span class="n">9.</span>Bezpieczeństwo</h2>
+<p>Ponieważ dane są tylko na telefonie, ich bezpieczeństwo zależy m.in. od zabezpieczenia samego telefonu (blokada ekranu, aktualny system). Aplikacja nie przesyła wpisów przez internet, więc nie ma serwera, który mógłby zostać naruszony. Pamiętaj, że po odinstalowaniu aplikacji dane zostaną usunięte, jeśli wcześniej nie zrobisz kopii zapasowej.</p>
+</section>
+
+<section id="usuwanie">
+<h2><span class="n">10.</span>Usuwanie danych</h2>
+<ul>
+<li>Pojedyncze wydarzenie lub całą osobę wraz z jej datami, zdjęciem i wspomnieniami usuniesz w aplikacji.</li>
+<li>Wszystkie dane aplikacji znikną po jej odinstalowaniu albo po wyczyszczeniu danych aplikacji w ustawieniach telefonu.</li>
+<li>Skoro dostawca nie przechowuje Twoich wpisów, nie ma u niego czego usuwać.</li>
+</ul>
+</section>
+
+<section id="dzieci">
+<h2><span class="n">11.</span>Dzieci</h2>
+<p>Aplikacja nie jest kierowana do dzieci poniżej 13 lat i nie zbieramy danych od nikogo, w tym od dzieci. Rodzic lub opiekun może w niej zapisać datę urodzin dziecka na własnym telefonie.</p>
+</section>
+
+<section id="prawa">
+<h2><span class="n">12.</span>Twoje prawa</h2>
+<p>W zakresie, w jakim dostawca przetwarza Twoje dane osobowe (np. gdy napiszesz do nas wiadomość e-mail), przysługuje Ci prawo dostępu do danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, sprzeciwu oraz przenoszenia, a także prawo wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (<a href="https://uodo.gov.pl" rel="noopener">uodo.gov.pl</a>). Wiadomości e-mail wykorzystujemy wyłącznie do odpowiedzi i usuwamy, gdy nie są już potrzebne.</p>
+</section>
+
+<section id="zmiany">
+<h2><span class="n">13.</span>Zmiany polityki</h2>
+<p>Jeśli aplikacja zacznie przetwarzać dane inaczej (np. pojawi się nowa funkcja korzystająca z internetu), zaktualizujemy tę politykę i datę na jej początku. O istotnych zmianach poinformujemy w opisie aktualizacji w sklepie.</p>
+</section>
+
+<section id="kontakt">
+<h2><span class="n">14.</span>Kontakt</h2>
+<p>Pytania o prywatność kieruj na adres: <a href="mailto:stolat.app@gmail.com">stolat.app@gmail.com</a>.</p>
+</section>
+
+<footer>
+<p>© 2026 Sto lat! · <a href="./">Wróć na stronę główną</a></p>
+</footer>
+
+</div>
+</main>
+</body>
+</html>
