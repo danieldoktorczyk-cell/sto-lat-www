@@ -87,7 +87,7 @@ page = f'''<!doctype html>
 <title>Nowości i aktualności – Sto lat!</title>
 <meta name="description" content="Lista zmian w aplikacji Sto lat! i najnowsze wiadomości o aplikacji.">
 <meta property="og:title" content="Nowości i aktualności – Sto lat!">
-<meta property="og:image" content="https://danieldoktorczyk-cell.github.io/sto-lat-www/og.png">
+<meta property="og:image" content="https://stolat.app/og.png">
 <link rel="icon" href="icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
