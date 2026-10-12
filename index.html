@@ -83,6 +83,10 @@ nav.bar ul a:hover{color:var(--white)}
 .confetti{position:absolute;inset:0;pointer-events:none}
 .confetti i{position:absolute;display:block;border-radius:3px}
 @media (max-width:900px){.confetti{display:none}}
+/* Animowane konfetti (wariant C): wybuch na wejściu i przy „Pobierz”, potem rzadkie opadanie w nagłówku.
+   Gdy animacja działa, nieruchome konfetti znika; przy ograniczeniu ruchu zostaje tylko ono. */
+#party{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+.anim .confetti{display:none}
 
 /* Funkcje */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
@@ -370,5 +374,72 @@ h3.sub{margin-top:48px;font-size:22px;font-weight:800}
 
 </div>
 </main>
+<canvas id="party" aria-hidden="true"></canvas>
+<script>
+(() => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const cv = document.getElementById('party');
+  const ctx = cv.getContext && cv.getContext('2d');
+  if (!ctx) return;
+  document.documentElement.classList.add('anim');
+  const COLORS = ['#ff7a9a', '#5ee0b8', '#ffd27a', '#a593ff', '#ffffff'];
+  const header = document.querySelector('header.top');
+  let W = 0, H = 0, dpr = 1, parts = [], t = 0, running = false;
+  const resize = () => {
+    dpr = Math.min(2, window.devicePixelRatio || 1);
+    W = innerWidth; H = innerHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+  const piece = (o) => Object.assign({
+    x: Math.random() * W, y: -12, vx: (Math.random() - 0.5) * 0.6, vy: 0.6 + Math.random() * 0.9,
+    r: Math.random() * 6.28, vr: (Math.random() - 0.5) * 0.12, w: 5 + Math.random() * 6, h: 3 + Math.random() * 8,
+    c: COLORS[(Math.random() * COLORS.length) | 0], round: Math.random() < 0.3, burst: false, sway: Math.random() * 100,
+  }, o);
+  const burst = (x, y, n = 90) => {
+    for (let i = 0; i < n; i++) {
+      const a = -Math.PI / 2 + (Math.random() - 0.5) * 2.4, s = 6 + Math.random() * 9;
+      parts.push(piece({ x, y, vx: Math.cos(a) * s, vy: Math.sin(a) * s, burst: true }));
+    }
+    start();
+  };
+  const frame = () => {
+    t++;
+    ctx.clearRect(0, 0, W, H);
+    // Rzadkie opadanie tylko, gdy widać nagłówek; kawałki znikają na jego dolnej krawędzi.
+    const bottom = header ? header.getBoundingClientRect().bottom : H;
+    if (bottom > 80 && t % 22 === 0 && parts.length < 140) parts.push(piece({}));
+    parts = parts.filter((p) => (p.burst ? p.y < H + 20 : p.y < bottom - 4));
+    for (const p of parts) {
+      if (p.burst) { p.vy += 0.28; p.vx *= 0.985; p.vy = Math.min(p.vy, 5); }
+      p.x += p.vx + (p.burst ? 0 : Math.sin((t + p.sway) / 40) * 0.35);
+      p.y += p.vy; p.r += p.vr;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.r); ctx.fillStyle = p.c; ctx.globalAlpha = 0.9;
+      if (p.round) { ctx.beginPath(); ctx.arc(0, 0, p.w / 2.6, 0, 6.3); ctx.fill(); }
+      else ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h / 2.2);
+      ctx.restore();
+    }
+    // Gdy nagłówek przewinięty i nic nie leci – usypiamy pętlę (oszczędza baterię).
+    if (parts.length === 0 && bottom <= 80) { running = false; return; }
+    requestAnimationFrame(frame);
+  };
+  const start = () => { if (!running) { running = true; requestAnimationFrame(frame); } };
+  resize();
+  addEventListener('resize', resize);
+  addEventListener('scroll', start, { passive: true });
+  // Wybuch na powitanie – z okolic przycisku w nagłówku.
+  const hero = document.querySelector('.btn.primary');
+  setTimeout(() => {
+    const b = hero ? hero.getBoundingClientRect() : { left: W * 0.3, top: H * 0.6, width: 0 };
+    burst(b.left + b.width / 2, b.top, 110);
+  }, 350);
+  // Wybuch przy każdym „Pobierz na Androida”.
+  document.querySelectorAll('a.btn').forEach((a) => {
+    if (!/Pobierz/.test(a.textContent)) return;
+    a.addEventListener('click', (e) => burst(e.clientX || W / 2, e.clientY || H / 2));
+  });
+  start();
+})();
+</script>
 </body>
 </html>
