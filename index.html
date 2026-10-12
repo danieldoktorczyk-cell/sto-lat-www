@@ -87,6 +87,20 @@ nav.bar ul a:hover{color:var(--white)}
    Gdy animacja działa, nieruchome konfetti znika; przy ograniczeniu ruchu zostaje tylko ono. */
 #party{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
 .anim .confetti{display:none}
+/* Animowany baner na dole */
+.cta::before{content:"";position:absolute;width:420px;height:420px;right:-60px;top:-160px;border-radius:50%;background:radial-gradient(circle,rgba(255,143,177,.35),transparent 65%);animation:glow 6s ease-in-out infinite;pointer-events:none}
+.cta::after{content:"";position:absolute;top:0;bottom:0;left:-40%;width:30%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.10),transparent);transform:skewX(-18deg);animation:shine 7s ease-in-out infinite;pointer-events:none}
+.cta>div{position:relative;z-index:1}
+.cta .chars img{animation:float 5s ease-in-out infinite}
+.cta .chars img:nth-child(2){animation-duration:6s;animation-delay:-2s}
+.cta .chars img:nth-child(3){animation-duration:5.5s;animation-delay:-3.5s}
+.cta .chars .spark{position:absolute;width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 12px 4px rgba(255,255,255,.6);animation:twinkle 2.6s ease-in-out infinite}
+.cta .btn.light{animation:nudge 4s ease-in-out infinite}
+@keyframes glow{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.15) translate(-30px,20px);opacity:1}}
+@keyframes shine{0%,60%{left:-40%}100%{left:130%}}
+@keyframes twinkle{0%,100%{opacity:.15;transform:scale(.6)}50%{opacity:1;transform:scale(1.2)}}
+@keyframes nudge{0%,88%,100%{transform:translateY(0)}92%{transform:translateY(-4px)}96%{transform:translateY(0)}}
+@media (prefers-reduced-motion:reduce){.cta::before,.cta::after,.cta .chars img,.cta .chars .spark,.cta .btn.light{animation:none}}
 
 /* Funkcje */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
@@ -361,6 +375,10 @@ h3.sub{margin-top:48px;font-size:22px;font-weight:800}
 <img src="img/tort.png" alt="" style="width:92px;left:6%;top:70px">
 <img src="img/balon.png" alt="" style="width:96px;left:38%;top:0">
 <img src="img/prezent.png" alt="" style="width:84px;left:68%;top:80px">
+<span class="spark" style="left:30%;top:30px"></span>
+<span class="spark" style="left:62%;top:20px;animation-delay:-1s"></span>
+<span class="spark" style="left:88%;top:150px;animation-delay:-1.8s"></span>
+<span class="spark" style="left:2%;top:170px;animation-delay:-.6s"></span>
 </div>
 </div>
 
@@ -433,6 +451,20 @@ h3.sub{margin-top:48px;font-size:22px;font-weight:800}
     const b = hero ? hero.getBoundingClientRect() : { left: W * 0.3, top: H * 0.6, width: 0 };
     burst(b.left + b.width / 2, b.top, 110);
   }, 350);
+  // Baner na dole: wybuch konfetti, gdy pojawi się na ekranie (ponownie dopiero po wyjściu i powrocie).
+  const cta = document.querySelector('.cta');
+  if (cta && 'IntersectionObserver' in window) {
+    let shown = false;
+    new IntersectionObserver((list) => {
+      for (const e of list) {
+        if (e.isIntersecting && !shown) {
+          shown = true;
+          const r = cta.getBoundingClientRect();
+          burst(r.left + r.width * 0.75, r.top + r.height * 0.55, 80);
+        } else if (!e.isIntersecting) shown = false;
+      }
+    }, { threshold: 0.6 }).observe(cta);
+  }
   // Wybuch przy każdym „Pobierz na Androida”.
   document.querySelectorAll('a.btn').forEach((a) => {
     if (!/Pobierz/.test(a.textContent)) return;
