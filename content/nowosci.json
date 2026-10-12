@@ -1,0 +1,33 @@
+{
+  "wydania": [
+    {
+      "wersja": "1.0",
+      "status": "w przygotowaniu",
+      "data": "",
+      "tytul": "Pierwsze wydanie",
+      "wyrozniki": [
+        {"tytul": "Widżet na ekran główny", "opis": "Najbliższe wydarzenie zawsze na wierzchu, z przezroczystym tłem. Na Androidzie."},
+        {"tytul": "Animowane kartki GIF", "opis": "Unoszące się balony, kwiaty i serca. Wyślesz je MMS-em albo przez komunikator."},
+        {"tytul": "Święta rodzinne i jubileusze", "opis": "Dzień Babci, Dziadka, Wigilia, srebrne gody. Z przypomnieniem z wyprzedzeniem."}
+      ],
+      "zmiany": [
+        "Kalendarz urodzin, imienin i rocznic bliskich, z listą najbliższych dat",
+        "Imieniny podpowiadane z kalendarza dla ponad 1500 imion",
+        "Przypomnienia zapisane na telefonie: w dniu wydarzenia, 3 dni, tydzień lub 2 tygodnie wcześniej, o wybranej godzinie",
+        "Ponad 100 gotowych życzeń w kilku tonach, z poprawną odmianą imienia, rodzaju i numeru rocznicy",
+        "Wysyłka życzeń SMS-em, MMS-em lub przez komunikator",
+        "Podpowiedzi prezentów: pomysły filtrowane według osoby, okazji, zainteresowań i budżetu",
+        "Karta osoby ze wspomnieniami i zdjęciami",
+        "Import osób z kontaktów w telefonie",
+        "Animowane kartki GIF",
+        "Widżet na ekran główny (Android)",
+        "Święta rodzinne i jubileusze",
+        "Kopia zapasowa danych do pliku"
+      ]
+    }
+  ],
+  "aktualnosci": [
+    {"data": "2026-10-12", "tag": "Aplikacja", "tytul": "Przygotowujemy publikację w Google Play", "tekst": "Wersja 1.0 jest gotowa do wysłania do sklepu. Gdy tylko zostanie zatwierdzona, w tym miejscu pojawi się przycisk pobierania."},
+    {"data": "2026-10-12", "tag": "Strona", "tytul": "Ruszyła strona „Sto lat!”", "tekst": "Znajdziesz tu opis funkcji, odpowiedzi na najczęstsze pytania i politykę prywatności. Wiadomości o aplikacji będziemy zbierać w tej sekcji."}
+  ]
+}
