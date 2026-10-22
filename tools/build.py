@@ -85,6 +85,7 @@ page = f'''<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nowości i aktualności – Sto lat!</title>
+<link rel="canonical" href="https://stolat.app/nowosci.html">
 <meta name="description" content="Lista zmian w aplikacji Sto lat! i najnowsze wiadomości o aplikacji.">
 <meta property="og:title" content="Nowości i aktualności – Sto lat!">
 <meta property="og:image" content="https://stolat.app/og.png">
